@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "35ba8605-c03b-4ce0-b424-b5c9ead1556e",
+		"name": "Lesson4b",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}?page={{page}}",
+					"host": [
+						"{{url}}"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "{{page}}"
+						}
+					]
+				},
+				"description": "Get All users on page 1"
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "79b23ad4-0322-46f3-97d8-fc3aadc0a987",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"user_id\", jsonData.data._id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"first_name\": \"{{first_name}}\",\r\n    \"last_name\": \"{{last_name}}\",\r\n    \"email\": \"{{email}}\",\r\n    \"mobile_no\": \"{{mobile_no}}\",\r\n    \"password\": \"{{password}}\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}",
+					"host": [
+						"{{url}}"
+					]
+				},
+				"description": "Create a user"
+			},
+			"response": []
+		},
+		{
+			"name": "Get by UserId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c8e427b4-1a8c-4cb9-9364-3108f7a825c1",
+						"exec": [
+							"var user_id = pm.environment.get(\"user_id\"); ",
+							"pm.test(\"Body contains user_id\", function () {",
+							"    pm.expect(pm.response.text()).to.include(user_id);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{user_id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{user_id}}"
+					]
+				},
+				"description": "Gets a User by Id"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

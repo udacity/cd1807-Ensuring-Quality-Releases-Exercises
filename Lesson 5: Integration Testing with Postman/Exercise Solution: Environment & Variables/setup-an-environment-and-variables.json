@@ -1,0 +1,73 @@
+{
+	"info": {
+		"_postman_id": "99f7179c-8f9c-4c32-9a93-786476c5057c",
+		"name": "Lesson4a",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}?page={{page}}",
+					"host": [
+						"{{url}}"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "{{page}}"
+						}
+					]
+				},
+				"description": "Get All users on page 1"
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"first_name\": \"{{first_name}}\",\r\n    \"last_name\": \"{{last_name}}\",\r\n    \"email\": \"{{email}}\",\r\n    \"mobile_no\": \"{{mobile_no}}\",\r\n    \"password\": \"{{password}}\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}",
+					"host": [
+						"{{url}}"
+					]
+				},
+				"description": "Create a user"
+			},
+			"response": []
+		},
+		{
+			"name": "Get by UserId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/5e9cba70d4c4734c3e4fdc49",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"5e9cba70d4c4734c3e4fdc49"
+					]
+				},
+				"description": "Gets a User by Id"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
