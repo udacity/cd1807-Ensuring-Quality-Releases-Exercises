@@ -1,11 +1,11 @@
-# Project Starter
+
 This repository contains the exercise starter code and solution for the lesson exercises in **cd1807 Ensuring Quality Releases** (Quality Assurance) course taught by Nathan Anderson. 
 
 Here is the list of lessons containing the exercises/solutions:
 
 
 
-## Repo directory structure
+## Directory structure
 ```bash
 .
 ├── Lesson 2: Creating and Deploying Azure Cloud Infrastructure
@@ -16,9 +16,11 @@ Here is the list of lessons containing the exercises/solutions:
 │   └── Exercise: Create Azure AppService with Terraform
 │       ├── terraform
 │       └── terraform_solution
+│
 ├── Lesson 3: Performance Testing
 │   └── Exercise Solution: JMeter
 │       └── intro-to-jmeter.solution.jmx
+│
 ├── Lesson 4: Functional UI Testing with Selenium
 │   ├── Exercise Solution: CSS Selectors
 │   │   └── finding-css-selectors.solution.py
@@ -27,11 +29,13 @@ Here is the list of lessons containing the exercises/solutions:
 │   └── Exercise: Selenium Basics
 │       ├── intro-to-selenium.py
 │       └── intro-to-selenium.solution.py
+│
 ├── Lesson 5: Integration Testing with Postman
 │   ├── Exercise Solution: Create Tests in Postman
 │   │   └── create-tests-in-postman.json
 │   └── Exercise Solution: Environment & Variables
 │       └── setup-an-environment-and-variables.json
+│
 └── README.md
 ```
 
