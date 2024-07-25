@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "35ba8605-c03b-4ce0-b424-b5c9ead1556e",
+		"name": "Lesson4b",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/posts",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts"
+					]
+				},
+				"description": "Get All Posts"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "79b23ad4-0322-46f3-97d8-fc3aadc0a987",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"post_id\", jsonData.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=UTF-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"{{title}}\",\r\n    \"body\": \"{{body}}\",\r\n    \"userId\": {{userId}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/posts",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts"
+					]
+				},
+				"description": "Create a new post"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Post by ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c8e427b4-1a8c-4cb9-9364-3108f7a825c1",
+						"exec": [
+							"var post_id = pm.environment.get(\"post_id\");",
+							"pm.test(\"Body contains post_id\", function () {",
+							"    pm.expect(pm.response.text()).to.include(post_id);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/posts/{{post_id}}",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						"{{post_id}}"
+					]
+				},
+				"description": "Gets a post by ID"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
