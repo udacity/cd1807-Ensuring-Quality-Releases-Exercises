@@ -41,6 +41,10 @@ Here is the list of lessons containing the exercises/solutions:
 
 ## How to use?
 - Fork this repository to your Github account and clone it locally for further development. 
+    ```
+    git clone https://github.com/udacity/cd1807-Ensuring-Quality-Releases-Exercises.git
+    cd cd1807-Ensuring-Quality-Releases-Exercises
+    ```
 - Follow the classroom instructions, and check the rubric before a submission. 
 
 
